@@ -12,7 +12,7 @@ namespace FreeTestManager.Core.Providers.Implementations
 
         public FileTestProvider() 
         {
-            BaseDirectoryPath = Directory.GetCurrentDirectory() + "\\tasks";
+            BaseDirectoryPath = Directory.GetCurrentDirectory() + "\\tests";
             if (!Directory.Exists(BaseDirectoryPath))
             {
                 Directory.CreateDirectory(BaseDirectoryPath);
@@ -45,7 +45,7 @@ namespace FreeTestManager.Core.Providers.Implementations
 
         public bool Save(Test test)
         {
-            if (string.IsNullOrWhiteSpace(test.Title))
+            if (string.IsNullOrWhiteSpace(test.Title) || isTestAlreadyExist(test.Title))
             {
                 return false;
             }
@@ -56,6 +56,11 @@ namespace FreeTestManager.Core.Providers.Implementations
                 JsonSerializer.Serialize(fileStream, test);
             }
             return true;
+        }
+
+        private bool isTestAlreadyExist(string title)
+        {
+            return File.Exists($"{BaseDirectoryPath}/{title}.json");
         }
     }
 }

@@ -16,6 +16,11 @@ namespace FreeTestManager.Core.Builders.QuestionBuilder.Implementations
             Question.Answers.Add(answer);
         }
 
+        public void DeleteAnswer(Answer answer)
+        {
+            Question.Answers.Remove(answer);
+        }
+
         public void AddRange(List<Answer> answers)
         {
             Question.Answers.AddRange(answers);
