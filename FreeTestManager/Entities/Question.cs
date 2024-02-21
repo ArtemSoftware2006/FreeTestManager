@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FreeTestManager.Entities
@@ -8,15 +9,16 @@ namespace FreeTestManager.Entities
         public Question() 
         {
             Answers = new List<Answer>();
+            Id = Guid.NewGuid();
         }
-        public Question(int id, string text, List<Answer> answers)
+        public Question(Guid id, string text, List<Answer> answers)
         {
             Id = id;
             Text = text;
             Answers = answers;
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Text { get; set; }
         public List<Answer> Answers{ get; set; }
 

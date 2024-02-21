@@ -8,8 +8,9 @@ namespace FreeTestManager.Entities
         public Test() 
         {
             Questions = new List<Question>();
+            Id = Guid.NewGuid();
         }
-        public Test(int id, string title, string author, DateTime created, List<Question> questions)
+        public Test(Guid id, string title, string author, DateTime created, List<Question> questions)
         {
             Id = id;
             Title = title;
@@ -18,7 +19,7 @@ namespace FreeTestManager.Entities
             Questions = questions;
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime Created { get; set; }
