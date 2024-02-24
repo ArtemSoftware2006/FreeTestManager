@@ -45,7 +45,7 @@ namespace FreeTestManager.Core.Providers.Implementations
 
         public bool Save(Test test)
         {
-            if (string.IsNullOrWhiteSpace(test.Title) || isTestAlreadyExist(test.Title))
+            if (string.IsNullOrWhiteSpace(test.Title))
             {
                 return false;
             }

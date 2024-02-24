@@ -7,13 +7,12 @@ namespace FreeTestManager.Core.Builders.TestBuilder.Implementations
 {
     public class FreeTestBuilder : ITestBuilder
     {
-        public Test Test { get; private set; }
+        public Test Test { get; set; }
 
         public FreeTestBuilder()
         {
             Test = new Test();
         }
-
         public void AddAuthor(string author)
         {
             Test.Author = author;

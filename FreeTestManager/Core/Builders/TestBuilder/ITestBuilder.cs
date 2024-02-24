@@ -6,6 +6,7 @@ namespace FreeTestManager.TestBuilder
 {
     public interface ITestBuilder
     {
+        Test Test { get; set; }
         void AddTitle(string title);
         void AddAuthor(string author);
         void AddDateTimeCreated(DateTime dateTime);
